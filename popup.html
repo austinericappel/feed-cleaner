@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        padding: 16px;
+        width: 280px;
+        margin: 0;
+        background: #fafafa;
+      }
+
+      .header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        gap: 12px;
+      }
+
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 28px;
+      }
+
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .3s;
+        border-radius: 34px;
+      }
+
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 20px;
+        width: 20px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .3s;
+        border-radius: 50%;
+      }
+
+      input:checked + .slider {
+        background-color: #6b46c1;
+      }
+
+      input:checked + .slider:before {
+        transform: translateX(22px);
+      }
+
+      h3 {
+        color: #2d3748;
+        margin: 0 0 16px 0;
+        font-size: 18px;
+      }
+
+      #filtersContainer {
+        margin-bottom: 16px;
+      }
+
+      #filtersContainer > div {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+        background: white;
+        padding: 8px 12px;
+        border-radius: 6px;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      }
+
+      #filtersContainer span {
+        flex-grow: 1;
+        margin-left: 8px;
+        color: #4a5568;
+      }
+
+      .add-filter {
+        display: flex;
+        gap: 8px;
+      }
+
+      input[type="text"] {
+        flex-grow: 1;
+        padding: 8px 12px;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        font-size: 14px;
+      }
+
+      input[type="text"]:focus {
+        outline: none;
+        border-color: #6b46c1;
+        box-shadow: 0 0 0 1px #6b46c1;
+      }
+
+      button {
+        background: #6b46c1;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.2s;
+      }
+
+      button:hover {
+        background: #553c9a;
+      }
+
+      input[type="checkbox"] {
+        accent-color: #6b46c1;
+      }
+
+      .remove-btn {
+        background: #f3f4f6;
+        color: #4a5568;
+        padding: 4px 8px;
+        margin-left: 8px;
+      }
+
+      .remove-btn:hover {
+        background: #e5e7eb;
+      }
+
+      .enable-text {
+        color: #4a5568;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <label class="switch">
+        <input type="checkbox" id="enableFilter">
+        <span class="slider"></span>
+      </label>
+      <span class="enable-text">Enable Filter</span>
+    </div>
+    
+    <h3>Content Filters</h3>
+    <div id="filtersContainer"></div>
+    <div class="add-filter">
+      <input type="text" id="newFilter" placeholder="Add new filter" />
+      <button id="addFilterButton">Add</button>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>
