@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Load enabled state
     chrome.storage.sync.get(["enabled", "filters"], (result) => {
       const enabled = result.enabled ?? true; // Default to enabled
-      const filters = result.filters || { elon: true, trump: true, slammed: true };
+      const filters = result.filters || { trump: true, elon: true, musk: true };
       
       // Set switch state
       document.getElementById("enableFilter").checked = enabled;
